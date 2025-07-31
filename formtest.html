@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Test</title>
+    <script type="text/javascript">
+
+        function ShowPassword() {
+            var my_pwd = document.getElementById('mypwd');
+            var pwd = my_pwd.value;
+
+            var mb_number = document.getElementById('mnb').value;
+            alert("รหัสผ่าน : " + pwd + " เบอร์โทร : " + mb_number);
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <h2>แบบฟอร์มสมัครสมาชิก</h2>
+    </center>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <form action="/5510096596/test.php" method="post">
+                        เพศ : <br />
+                        <input type="radio" name="gender" value="male"> ชาย<br>
+                        <input type="radio" name="gender" value="female" checked> หญิง<br>
+                        <input type="radio" name="gender" value="other"> อื่นๆ <br>
+                        ชื่อ : <br />
+                        <input type="text" name="name"  placeholder="กรุณาพิมพ์ภาษาอังกฤษ" /><br />
+                        จังหวัด : <br />
+                        <select name="province">
+                            <option value="กาญจนบุรี">Kanchanaburi</option>
+                            <option value="นครปฐม" selected>Nakhon Pathom</option>
+                        </select> <br />
+                        สีที่ชอบ : <br />
+                        <input type="color" name="myfcolor" value="#0000ff" /><br />
+                        ขนาด : <input type="range" name="size" min="1" max="10" /><br />
+                        เบอร์โทร :<br />
+                        <input type="number" max="9999999999" id="mnb" name="mobile_number" /><br />
+                        รหัสผ่าน :<br />
+                        <input type="password" id="mypwd" name="pwd" /> <br />
+                        แนะนำตัวเอง : <br />
+                        <textarea rows="6" cols="50" name="intro">ข้อความ</textarea>
+                        <br /><br />
+                        <input type="submit" value="ส่งข้อมูล" />
+                        <input type="reset" value="เคลียร์" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </center>
+   <a href="http://localhost/5510096596/show.php">แสดงข้อมูลทั้งหมด</a>
+   </br>
+   <a href="http://localhost/5510096596/formprovince.html">แสดงข้อมูลเฉพาะจังหวัด</a>
+    
+</body>
+
+</html>

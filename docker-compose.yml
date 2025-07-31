@@ -1,0 +1,37 @@
+services:
+  php-apache:
+    image: php:8.1-apache
+    container_name: php-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    restart: always
+    environment:
+      - INSTALL_MISSING_EXTENSIONS=true
+    command: bash -c "docker-php-ext-install mysqli && apache2-foreground"
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shop
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./shop.sql:/docker-entrypoint-initdb.d/shop.sql
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: user
+      PMA_PASSWORD: password
+    ports:
+      - "8081:80"
+    restart: always
